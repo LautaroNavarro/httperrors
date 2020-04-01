@@ -1,16 +1,19 @@
-from distutils.core import setup
-setup(
-    name='httperrors',
-    packages=['httperrors'],
-    version='1.0.0',
-    license='gpl-3.0',
+import setuptools
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+
+setuptools.setup(
+    name="httperrors",
+    version="1.0.0",
+    author="Lautaro Navarro",
+    author_email="navarro_lautaro@hotmail.com",
     description='Library that provides a easy to use set of http errors along with useful descriptions',  # noqa
-    author='Lautaro Navarro',
-    author_email='navarro_lautaro@hotmail.com',
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     url='https://github.com/LautaroNavarro/httperrors',
-    download_url='https://github.com/LautaroNavarro/httperrors/archive/1.0.0.tar.gz',  # noqa
-    keywords=['HTTP', 'ERROR', 'TEST'],
-    install_requires=[],
+    packages=setuptools.find_packages(),
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
@@ -21,4 +24,5 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
   ],
+    python_requires='>=3.0',
 )
