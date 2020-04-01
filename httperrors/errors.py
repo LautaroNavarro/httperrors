@@ -1,6 +1,20 @@
 
 class RequestError(Exception):
-    pass
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.error_message = ""
+        self.error_code = None
+        self.status_code = None
+
+    def serialize(self, include_error_code=False, include_status_code=True):
+        response = {
+            "error_message": self.error_message,
+        }
+        if include_status_code:
+            response["status_code"] = self.status_code
+        if include_error_code:
+            response["error_code"] = self.error_code
+        return response
 
 
 class BadRequestError(RequestError):
