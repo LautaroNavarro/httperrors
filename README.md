@@ -9,7 +9,6 @@ Http errors provide a list of easy to test and descriptive set of python errors.
 
     from httperrors import BadRequestError
     class View(BaseView):
-
         def validate(self, request):
             ... 
             if not request.body.is_json():
@@ -17,7 +16,6 @@ Http errors provide a list of easy to test and descriptive set of python errors.
                 	error_message="You must provide a JSON body",
                 	error_code="NOT_A_JSON_BODY_ERROR",
                 )
-
         def run(self,request):
             ...
 
@@ -27,7 +25,6 @@ You will be able to catch this exception somewhere in the flow of your applicati
 
     from httperrors import BadRequestError
     class BaseView:
-
     def __init__(self):
     	try:
     		self.validate()
@@ -44,7 +41,6 @@ You will be able to easily test your application
 
     from httperrors import BadRequestError
     class TestView:
-
     def test_it_raises_bad_request_error_not_json_body(self):
     	view = View()
     	request = Mock()
